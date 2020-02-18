@@ -12,7 +12,6 @@ class Application
       end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
-      binding.pry
       resp.write handle_search(search_term)
 
     elsif req.path.match(/cart/)
@@ -23,6 +22,11 @@ class Application
           resp.write "#{cart}\n"
           end
         end
+
+      elsif req.path.match(/add/)
+        search_term = requ.params["item"]
+        binding.pry
+      end 
     else
       resp.write "Path Not Found"
     end
